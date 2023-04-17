@@ -2,13 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Nav from './component/nav'
+import Home from './Home';
 import reportWebVitals from './reportWebVitals';
+import Tour from './component/Tour'
+import { Provider } from 'react-redux';
+import store from './store'
+import Index from './component/Index';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  
+    <Provider store={store}>
+      <Home/>
+      <Index/>
+    </Provider>
+
+ 
 );
 
 // If you want to start measuring performance in your app, pass a function
