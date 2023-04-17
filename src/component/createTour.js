@@ -9,9 +9,10 @@ export default function CreateTour() {
     const dispatch = useDispatch();
     const [form,setform] = useState()
     const [to,setto] = useState()
-    const [traveller,settraveller] = useState()
+    const [traveller,settraveller] = useState(0)
     const [cost,setcost] = useState()
     const [date,setdate] = useState()
+
 
 
     const notify = () => toast("Created succesfully")
@@ -67,18 +68,6 @@ export default function CreateTour() {
                 ></input>
         </div>
 
-        <div className='flex flex-col justify-center'>
-            <label 
-            className='font-md text-base  cursor-pointer  md:p-2'
-            htmlFor='travellers'>TRAVELLERS</label>
-            <input 
-                id='travellers'
-                className='outline-none p-2 border-b-2 bg-transparent text-md  font-semibold '
-                type='number'
-                onChange={(e)=>settraveller(e.target.value)} required
-                ></input>
-        </div>
-
         <div className='flex flex-col   justify-center'>
             <label 
             className='font-md text-base cursor-pointer md:p-2'
@@ -90,6 +79,38 @@ export default function CreateTour() {
                 onChange={(e)=>setcost(e.target.value)} required
                 ></input>
         </div>
+
+
+        <div className='flex flex-col justify-center'>
+            <label 
+            className='font-md text-base  cursor-pointer  md:p-2'
+            htmlFor='travellers'>TRAVELLERS</label>
+        {/* { <input 
+              id='travellers'
+              className='outline-none p-2 border-b-2 bg-transparent text-md  font-semibold '
+              type='number'
+              onChange={(e)=>settraveller(e.target.value)} required
+              ></input>} */}
+
+            <div className='flex p-2 space-x-2 justify-around text-orange-500 font-bold items-center justify-center'>
+                  <button  
+                  onClick={()=>settraveller(state => {if(state> 0)return state - 1 ; else return state})}
+                  className=' bg-white rounded shadow w-8 h-8 items-center justify-center'> 
+                      <span className='block bg-black w-3 h-[3px] mx-auto'></span>
+                  </button>
+
+                <div className='w-8 h-8 rounded bg-white flex items-center justify-center'>{traveller}</div>
+
+                <button 
+                onClick={()=>settraveller(state => {if(state< 50)return state + 1 ; else return state})}
+                className='py-2 font-semibold bg-white rounded shadow w-8 h-8 relative'>
+                      <span className='block bg-black w-3 h-[3px] absolute rotate-90  left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]'></span>
+                      <span className='block bg-black w-3 h-[3px] absolute   left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]'></span>
+                </button>
+            </div>
+        </div>
+
+       
 
         <div className='flex  flex-col cursor-pointer '>
                <input 
