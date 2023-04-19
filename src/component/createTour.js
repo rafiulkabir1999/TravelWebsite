@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {Add,CreateTourapi} from '../redux/reducer/Tourslice'
 import { ToastContainer, toast } from 'react-toastify';
@@ -34,6 +34,10 @@ export default function CreateTour() {
       {
         notify();
       }
+
+// useEffect(()=>{
+
+//},[])
 
     }
   return (
@@ -92,21 +96,23 @@ export default function CreateTour() {
               onChange={(e)=>settraveller(e.target.value)} required
               ></input>} */}
 
-            <div className='flex p-2 space-x-2 justify-around text-orange-500 font-bold items-center justify-center'>
-                  <button  
+            <div className='flex p-2 space-x-2 justify-around  font-bold items-center justify-center'>
+                  
+                  <div 
                   onClick={()=>settraveller(state => {if(state> 0)return state - 1 ; else return state})}
-                  className=' bg-white rounded shadow w-8 h-8 items-center justify-center'> 
+                  className='flex cursor-pointer bg-white rounded shadow w-8 h-8 items-center justify-center'> 
                       <span className='block bg-black w-3 h-[3px] mx-auto'></span>
-                  </button>
+                  </div>
 
-                <div className='w-8 h-8 rounded bg-white flex items-center justify-center'>{traveller}</div>
+                <div className='w-8 h-8 rounded bg-white flex items-center text-black font-bold text-sm justify-center'>{traveller}</div>
 
-                <button 
+                <div 
+               
                 onClick={()=>settraveller(state => {if(state< 50)return state + 1 ; else return state})}
-                className='py-2 font-semibold bg-white rounded shadow w-8 h-8 relative'>
+                className='py-2 font-semibold bg-white rounded shadow w-8 h-8 relative cursor-pointer'>
                       <span className='block bg-black w-3 h-[3px] absolute rotate-90  left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]'></span>
                       <span className='block bg-black w-3 h-[3px] absolute   left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]'></span>
-                </button>
+                </div>
             </div>
         </div>
 
@@ -120,7 +126,9 @@ export default function CreateTour() {
                         onChange={(e)=>setdate(e.target.value)}
                         required></input>
         
-           <button className=' px-8 py-2 mt-auto rounded-md text-white font-semibold text-md bg-transparent border-white border-2 hover:bg-indigo-500'
+           <button 
+            type="submit"
+           className=' px-8 py-2 mt-auto rounded-md text-white font-semibold text-md bg-transparent border-white border-2 hover:bg-indigo-500'
                   
                   >Create</button>
         </div>

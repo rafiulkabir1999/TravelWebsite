@@ -54,8 +54,8 @@ export default function Index() {
       <h6 className='text-4xl px-0 font-bold py-4'>Tour Upcominng JOIN NOW !</h6>
       <span className="text-gray-400 py-5">here you can find all ther tour event happed in future</span>
       <div id='tourcontainer'className='grid relative order-last grid-cols-2 gap-3 pt-20 px-5 gap-y-10 md:grid-cols-5 md:gap-6 md:px-0'>
-        {reverse.map(e=>{
-          return <Tour details={e} key={e._id}/>
+        {reverse.map((e,index)=>{
+          return <Tour details={e} key={index} id={index} size={reverse.length}/>
         })}
       </div>
      </div>

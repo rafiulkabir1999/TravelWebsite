@@ -9,6 +9,8 @@ import  autoTable from'jspdf-autotable';
 export default function Tour(props) {
   
   //for pdf create doc
+console.log(props)
+
   //console
   const SavePDF = () => {
     const doc = new jsPDF()
@@ -47,7 +49,7 @@ export default function Tour(props) {
  useEffect(()=>{
  
  },[])
-console.log(props.details.people)
+
   return (
     <div id={'this'+props.details._id} className='relative shadow-md overflow-hidden     hover:shadow-xl'>
       <span  id={'cross'+ props.details._id} className='absolute right-0 top-0 hidden p-4 cursor-pointer z-50 '>
@@ -56,6 +58,10 @@ console.log(props.details.people)
         className='w-5 h-5'
         src="./cross.png" alt="" />
       </span>
+      <div className=' h-32  w-8 rotate-45 block absolute bg-white  left-0 top-[-30px] '>
+       
+      </div> 
+      <span className='absolute top-3 left-4 font-bold text-black'>{props.size - props.id}</span>
 
 
 
