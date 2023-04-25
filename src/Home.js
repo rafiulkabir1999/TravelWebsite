@@ -24,8 +24,9 @@ export default function Home() {
   
 
   return (
+    <>
    <div className=' w-[100%] bg-cover  bg-no-repeat  bg-gradient-to-r from-indigo-500 from-10% via-purple-500 via-30% to-pink-500 to-90%  bg-[url(https://imges.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8&w=1000&q=80)]'>
-     <Nav/>
+     
      <div className='container h-[80%] mx-auto flex align-center items-center justify-center flex-col  space-y-20'>
 
             <div className='continer'>
@@ -45,5 +46,15 @@ export default function Home() {
    
 
      </div>
+
+<div className='container mx-auto  pt-20 md:pt-20 z-10'>
+<div className='w-full mx-auto flex  justify-around md:justify-between md:w-2/3'>
+<BoxItem/>
+<BoxItem/>
+<BoxItem/>
+<BoxItem/>
+</div>
+</div>
+</>
   )
 }

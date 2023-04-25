@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from '../logo.svg'
+import { Link } from 'react-router-dom'
 
 export default function Nav() {
 
@@ -8,14 +9,19 @@ export default function Nav() {
  }
 
   return (
-    <div className='container mx-auto flex justify-between items-center py-2 relative'>
+    <div className='bg-gradient-to-r from-indigo-500 from-10% via-purple-500 via-30% to-pink-500 to-90% w-full '>
+    <div className='container mx-auto flex justify-between items-center py-2 relative '>
          <div className='brand'>
              <img className='w-12' src='./logo192.png'></img>
          </div>
          <div className='hidden md:flex items-center space-x-20 '>
             <div className='flex space-x-20   p-4 font-bold  text-base text-white list-none '>
-                <div className='hover:text-orange-400 cursor-pointer'>About</div>
+                <Link to='/'>
+                <div className='hover:text-orange-400 cursor-pointer'>Home</div>
+                </Link>
+                <Link to='/blog'>
                 <div className='hover:text-orange-400 cursor-pointer'>Blog</div>
+                </Link>
                 <div className='hover:text-orange-400 cursor-pointer'>Photos</div>
                 <div className='hover:text-orange-400 cursor-pointer'>Place</div>
             </div>
@@ -42,6 +48,6 @@ export default function Nav() {
                 <div className='hover:text-orange-400 cursor-pointer'>Place</div>
             </div>
          
-    </div>
+    </div></div>
   )
 }

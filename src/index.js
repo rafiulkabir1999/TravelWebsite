@@ -9,13 +9,14 @@ import Tour from './component/Tour'
 import { Provider } from 'react-redux';
 import store from './store'
 import Index from './component/Index';
+import { BrowserRouter,Route,Router } from 'react-router-dom';
+import Homepage from './component/Homepage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
     <Provider store={store}>
-      <Home/>
-      <Index/>
+     <App/>
     </Provider>
 
  

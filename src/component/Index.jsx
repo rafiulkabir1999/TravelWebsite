@@ -40,14 +40,7 @@ export default function Index() {
 
   return (
     <>
-      <div className='container mx-auto  pt-20 md:pt-20 z-10'>
-       <div className='w-full mx-auto flex  justify-around md:justify-between md:w-2/3'>
-       <BoxItem/>
-      <BoxItem/>
-      <BoxItem/>
-    <BoxItem/>
-       </div>
-     </div>
+  
 
 
      <div id='Tour' className='container mx-auto py-0 md:py-20'>
