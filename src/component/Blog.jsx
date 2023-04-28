@@ -1,42 +1,79 @@
 import React from 'react'
 import BlogPost from './BlogPost'
+import { useState,useEffect } from 'react'
+import { CreateBlog, reset } from '../redux/reducer/Blogslice'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 
 export default function Blog() {
 
-  const handelSubmit = () =>{
-    
+ const dispatch = useDispatch();
+ const {success ,error , pending} = useSelector(state => state.blog)
+ const [blog,setblog] = useState({
+   title:'',author:'',blog:''
+ })
+
+ const onchange = (e)=> {
+      setblog(prev => ({...prev,[e.target.name]:e.target.value}))
+ }
+
+  const notifysuccess = () => toast('Blog Created SuccesFully')
+  
+  const handelSubmit = (e) =>{
+    e.preventDefault()
+    blog.title && blog.blog && blog.author && dispatch(CreateBlog(blog))
+   
   }
+
+  // this code is for showing notification status about New Blog Post
+
+  useEffect(()=>{
+  success && notifysuccess()
+  success && dispatch(reset())
+  console.log("useeffect Called")
+},[success])
+
   return (
      <div className='container mx-auto h-screen py-6'>
 
-      <div className='flex flex-col  px-6  pt-10'>
+      <div className='flex flex-col  px-6  py-8 shadow '>
+         <span className='pb-2 font-bold text-gray-500'>Create Your Blog</span>
+
+
           <form 
           onSubmit={handelSubmit}
-          className='flex flex-col space-y-2'>
-                <input className='p-2 outline-none border 'placeholder='Title' type="text" />
-                <input className='p-2 outline-none border 'placeholder='Author' type="text" />
+          className='flex flex-col space-y-2 '>
+                <input 
+                name='title'
+                value={blog.title}
+                onChange={onchange}
+                className='p-2 outline-none border 'placeholder='Title' type="text" />
+
+                <input 
+                name='author'
+                value={blog.author}
+                onChange={onchange}
+                className='p-2 outline-none border 'placeholder='Author' type="text" />
+
                 <textarea 
-                className='outline-none border'
+                name='blog'
+                value={blog.blog}
+                onChange={onchange}
+                className='outline-none border p-2'
                 ame="" id="" cols="" rows="10"></textarea>
                 <button className='bg-blue-400 px-6 py-2 rounded text-white'>SUBMIT</button>
           </form>
+
+
       </div>
 
 
 
-        <div className="flex  pt-16">
-            <div className=" shadow-md mr-4 md:w-[20%]">
-               <div className='p-4 list-none text-sm font-medium cursor-pointer  '>
-                 <li className=' p-2 rounded hover:shadow-md hover:text-blue-600'>Name Of the storey of yours</li>
-                 <li className=' p-2 rounded hover:shadow-md hover:text-blue-600'>Name Of the storey of yours</li>
-                 <li className=' p-2 rounded hover:shadow-md hover:text-blue-600'>Name Of the storey of yours</li>
-                 <li className=' p-2 rounded hover:shadow-md hover:text-blue-600'>Name Of the storey of yours sdfa  this tis some ting big </li>
-                 <li className='py-1 p-2 rounded hover:shadow-md hover:text-blue-600'>Name Of the storey of yours</li>
-                 <li className=' p-2 rounded hover:shadow-md hover:text-blue-600'>Name Of the storey of yours</li>
-               </div>
-            </div>
+   
+            
 
-            <div className="py-2 flex  flex-col  space-y-10 md:w-[80%]">
+            <div className="py-2 flex  flex-col pt-20  space-y-10 ">
               <BlogPost/>
               <BlogPost/>
               <BlogPost/>
@@ -44,7 +81,7 @@ export default function Blog() {
 
              
             </div>
-        </div>
+       
      </div>
   )
 }

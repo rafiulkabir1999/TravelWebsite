@@ -1,9 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'
-import Tourslice from './redux/reducer/Tourslice.js'
+import Tourslice from './redux/reducer/Tourslice'
+import Blogslice from './redux/reducer/Blogslice'
+import { combineReducers } from '@reduxjs/toolkit'
+
+// const rootreducer = combineReducers({
+//    tour:Tourslice,
+//    blog:Blogslice
+// })
 
 const store = configureStore({
    reducer:{
-    tour : Tourslice
+    blog: Blogslice,
+    tour : Tourslice,
+    
    }
 })
 

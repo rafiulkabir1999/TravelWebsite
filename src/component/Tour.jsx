@@ -9,7 +9,7 @@ import  autoTable from'jspdf-autotable';
 export default function Tour(props) {
   
   //for pdf create doc
-console.log(props)
+
 
   //console
   const SavePDF = () => {
