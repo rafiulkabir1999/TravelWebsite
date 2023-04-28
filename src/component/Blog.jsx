@@ -1,7 +1,7 @@
 import React from 'react'
 import BlogPost from './BlogPost'
 import { useState,useEffect } from 'react'
-import { CreateBlog, reset } from '../redux/reducer/Blogslice'
+import { CreateBlog, GetBlog, reset } from '../redux/reducer/Blogslice'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
@@ -9,7 +9,8 @@ import { toast } from 'react-toastify'
 export default function Blog() {
 
  const dispatch = useDispatch();
- const {success ,error , pending} = useSelector(state => state.blog)
+ const {success ,error , pending , Blog} = useSelector(state => state.blog)
+
  const [blog,setblog] = useState({
    title:'',author:'',blog:''
  })
@@ -23,15 +24,26 @@ export default function Blog() {
   const handelSubmit = (e) =>{
     e.preventDefault()
     blog.title && blog.blog && blog.author && dispatch(CreateBlog(blog))
+    dispatch(GetBlog())
+   
    
   }
+
+  //initial GetBLog 
+  useEffect(()=>{
+    dispatch(GetBlog())
+  },[])
+
+  //update Blog and rerender
+  useEffect(()=> {
+  },[Blog])
 
   // this code is for showing notification status about New Blog Post
 
   useEffect(()=>{
   success && notifysuccess()
   success && dispatch(reset())
-  console.log("useeffect Called")
+
 },[success])
 
   return (
@@ -74,10 +86,10 @@ export default function Blog() {
             
 
             <div className="py-2 flex  flex-col pt-20  space-y-10 ">
-              <BlogPost/>
-              <BlogPost/>
-              <BlogPost/>
-              <BlogPost/>
+             
+              {Blog && Blog.map(e => {
+                return <BlogPost details={e}/>
+              })}
 
              
             </div>

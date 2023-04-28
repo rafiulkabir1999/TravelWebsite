@@ -1,6 +1,7 @@
 
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { act } from "react-dom/test-utils";
 //import { act } from "react-dom/test-utils";
 
 const initialState = {
@@ -8,6 +9,7 @@ const initialState = {
     pending:null,
     success:null,
     error:null,
+    Blog:null
 }
 
 export const CreateBlog = createAsyncThunk('blog/CreateBlog',async(state,thankAPI)=>{
@@ -21,6 +23,15 @@ export const CreateBlog = createAsyncThunk('blog/CreateBlog',async(state,thankAP
     }
 })
 
+export const GetBlog = createAsyncThunk('blog/GetBlog',async(state,thankAPI) => {
+    try {
+        const res =await axios.get('http://localhost:5000/blog')
+        return res.data
+    } catch (error) {
+        const message = error.response && error.response.data && error.response.message || error.message || error.toString()
+        return thankAPI.rejectWithValue(message)
+    }
+})
 
 
 export const BlogSlice = createSlice({
@@ -58,6 +69,17 @@ export const BlogSlice = createSlice({
             state.success = false
             state.error = true
             }) 
+
+
+     builder.addCase(GetBlog.pending, (state,action) => {
+
+     })
+     builder.addCase(GetBlog.rejected, (state,action) => {
+        
+     })
+     builder.addCase(GetBlog.fulfilled, (state,action) => {
+        state.Blog = action.payload
+     })
 
     }
 })
