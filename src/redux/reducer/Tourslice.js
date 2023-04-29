@@ -49,6 +49,17 @@ export const jointour = createAsyncThunk("tour/jointour",async(state,thankAPI) =
     }
 })
 
+export const searchtour = createAsyncThunk("tour/searchtour",async(state,thankAPI) => {
+    try {
+       console.log(state)
+        const res =await axios.get(`http://localhost:5000/tour/search/${state}`)
+        return res.data;
+    } catch (error) {
+        const message = error.response && error.response.data && error.response.message || error.message || error.toString()
+         return thankAPI.rejectWithValue(message)
+    }
+})
+
 export const TourSlice = createSlice({
     name:'tour',
     initialState,
@@ -94,6 +105,19 @@ export const TourSlice = createSlice({
             state.tour = action.payload
             state.joinreject=null
         })
+
+
+        
+        builder.addCase(searchtour.pending,(state,action)=>{
+          state.searchLoading = true
+        })
+        builder.addCase(searchtour.rejected,(state,action)=>{
+           state.searchMessage = action.payload
+        })    
+        builder.addCase(searchtour.fulfilled,(state,action)=>{
+          state.tour = action.payload
+        })
+       
 
           
     },

@@ -101,7 +101,7 @@ export default function Tour(props) {
         className='bg-white overflow-hidden  px-4 pb-4'>
             
             <div className='pt-4'>
-                  <span className='bg-orange-400 px-2  text-white rounded-full font-bold'>  {props.details.cost} tk</span>
+                  <span className='bg-orange-400 px-2  text-white text-xs rounded-full font-bold'>  {props.details.cost} tk</span>
             </div>
 
             <h3 className='text-xl pt-2 font-semibold text-green-500 text-left'>{props.details.form} to {props.details.to}</h3>

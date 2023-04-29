@@ -19,8 +19,10 @@ export default function BlogPost(props) {
           by {props.details.author}
       </span>
       </div>
-      <div className='p-2 px-4 text-gray-600 font-semibold text-sm  '>
-          {props.details.created_at.split('T')[0]}
+      <div className='p-2 px-4 text-gray-600 font-semibold text-sm  flex flex-col juftity-center items-center '>
+         <p>{props.details.created_at.split('T')[0]}</p> 
+         <p> {props.details.created_at.split('T')[1].split('.')[0]}</p>
+         
       </div>
     </div>
       <p id={props.details._id} className='p-6  leading-8 overflow-hidden max-h-28 pb-10 '>

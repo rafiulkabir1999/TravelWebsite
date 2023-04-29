@@ -47,14 +47,7 @@ export default function Home() {
 
      </div>
 
-<div className='container mx-auto  pt-20 md:pt-20 z-10'>
-<div className='w-full mx-auto flex  justify-around md:justify-between md:w-2/3'>
-<BoxItem/>
-<BoxItem/>
-<BoxItem/>
-<BoxItem/>
-</div>
-</div>
+
 </>
   )
 }
