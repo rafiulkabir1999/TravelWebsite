@@ -66,7 +66,17 @@ export default function Index() {
                 onChange={(e)=>setSearch(state => state = e.target.value)}
                 className='outline-none p-2  border-l border-t border-b rounded-l' 
                 placeholder='Destination'
-                type="text"></input>
+                type="text"
+                list='searchoption'
+                ></input>
+
+                <datalist id='searchoption'>
+                   <option value='Dhaka'>Dhaka</option>
+                   <option value='Rajshahi'>Rajshahi</option>
+                   <option value='Kulna'>Kulna</option>
+                </datalist>
+ 
+
                 <button 
                 className='bg-blue-500 p-2 px-4 rounded-r text-white border-r border-t border-b border-blue-500'
               

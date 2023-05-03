@@ -6,6 +6,7 @@ import Homepage from './component/Homepage';
 import Blog from './component/Blog';
 import Home from './Home';
 import Nav from './component/nav';
+import Photos from './component/photos'
 import { ToastContainer } from 'react-toastify';
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       
        <Route path='/' element={<Homepage/>} />
        <Route path='/blog' element={<Blog/>} />
-       <Route path='/' element={<Homepage/>} />
+       <Route path='/photos' element={<Photos/>} />
        <Route path='/' element={<Homepage/>} />
      </Routes>
      <ToastContainer/>

@@ -19,7 +19,7 @@ export default function Tour(props) {
       head: [['No', 'Name', 'Phone']],
     body: props.details.people.map((e ,index)=> {return  ([index + 1,e.name,e.phone])}) , })
     //doc.text("Hello world!", 10, 10);
-    props.details.people.length>0 ?  doc.save("a4.pdf") :alert("file is empty")
+    props.details.people.length>0 ?  doc.save(`${props.details.form}_to_${props.details.to}_${props.details.date}.pdf`) :alert("file is empty")
   }
 
   const dispatch = useDispatch();

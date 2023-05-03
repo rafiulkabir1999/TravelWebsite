@@ -22,7 +22,9 @@ export default function Nav() {
                 <Link to='/blog'>
                 <div className='hover:text-orange-400 cursor-pointer'>Blog</div>
                 </Link>
-                <div className='hover:text-orange-400 cursor-pointer'>Photos</div>
+               <Link to='/photos'>
+               <div className='hover:text-orange-400 cursor-pointer'>Photos</div>
+               </Link>
                 <div className='hover:text-orange-400 cursor-pointer'>Place</div>
             </div>
             <div>
