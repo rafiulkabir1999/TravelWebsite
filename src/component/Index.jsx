@@ -16,7 +16,7 @@ export default function Index() {
     const event = useSelector(state => state.tour.tour)
     const [search,setSearch] = useState()
    
-    //const reverse = event && event.slice().reverse()
+   
     
     const dispatch = useDispatch();
     //const Tour = useSelector(state=>state.Tour.Tour)
@@ -91,7 +91,8 @@ export default function Index() {
       </div>
       <div id='tourcontainer'className='grid relative order-last grid-cols-2 gap-3 pt-20 px-5 gap-y-10 md:grid-cols-5 md:gap-6 md:px-0'>
         { event && event.map((e,index)=>{
-          return <Tour details={e} key={index} id={index} size={event.length}/>
+          return <Tour  details={e} key={index} id={index} size={event.length}/>
+         
         })}
       </div>
      </div>

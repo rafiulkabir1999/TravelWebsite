@@ -51,17 +51,25 @@ export default function Tour(props) {
  },[])
 
   return (
-    <div id={'this'+props.details._id} className='relative shadow-md overflow-hidden     hover:shadow-xl'>
+    <div id={'this'+props.details._id} 
+    className={'order-'+props.key + ' relative shadow-md overflow-hidden    hover:shadow-xl'} >
       <span  id={'cross'+ props.details._id} className='absolute right-0 top-0 hidden p-4 cursor-pointer z-50 '>
         <img 
         onClick={()=> Showmodal()}
         className='w-5 h-5'
         src="./cross.png" alt="" />
       </span>
-      <div className=' h-32  w-8 rotate-45 block absolute bg-white  left-0 top-[-30px] '>
-       
-      </div> 
-      <span className='absolute top-3 left-4 font-bold text-black'>{props.size - props.id}</span>
+     
+      <div className='absolute top-1 left-1 '>
+        <img 
+        className='w-11 h-11 '
+        src="https://cdn2.iconfinder.com/data/icons/office-159/24/badge-512.png" alt="" />
+        
+        
+      </div>
+      <div className=' block  absolute top-1 left-1 '>
+        <div className='w-11 h-11 font-bold text-black flex items-center justify-center'> {props.id +1}</div>
+        </div>
 
 
 

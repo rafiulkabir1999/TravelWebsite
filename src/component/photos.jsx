@@ -48,10 +48,38 @@ export default function Photos() {
             </div>
       </div>
 
-      <div className='border pt-5 p-2  grid grid-rows-2 grid-flow-col gap-4 '>
-       { photos && photos.map(e => {
-           return <img src={e.urls.small}></img>
-       })}
+      <div className=' pt-5  w-full flex space-x-6'>
+        <div className="w-1/4 space-y-6">
+            { photos && photos.slice(0,10).map(e => {
+              return <>
+                      <img className='' src={e.urls.small}></img>
+              </>
+          })}
+        </div>
+        <div className="w-1/4 space-y-6 bg-yellow block">
+            { photos && photos.slice(10,20).map(e => {
+              return <>
+                      <img className='' src={e.urls.small}></img>
+                     </>
+          })}
+        </div>
+        <div className="w-1/4 space-y-6 bg-yellow block">
+            { photos && photos.slice(20,30).map(e => {
+              return <>
+                      <img className='' src={e.urls.small}></img>
+                     </>
+          })}
+        </div>
+
+        <div className="w-1/4 space-y-6 bg-yellow block">
+            { photos && photos.slice(20,30).map(e => {
+              return <>
+                      <img className='' src={e.urls.small}></img>
+                     </>
+          })}
+        </div>
+
+
      </div>
     </div>
   )
