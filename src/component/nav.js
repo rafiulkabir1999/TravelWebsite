@@ -1,8 +1,26 @@
 import React from 'react'
 import Logo from '../logo.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate ,useLocation,  } from 'react-router-dom'
+//import { useNavigate } from "react-router-dom";
+
 
 export default function Nav() {
+
+ const Navigate = useNavigate()
+ const Location = useLocation()
+
+ const navigatetoTour =() => {
+
+      console.log(Location.pathname)
+      const TOUR_ID = 'Tour'
+      if (Location.pathname === '/')
+      document.getElementById('Tour').scrollIntoView({ behavior: 'smooth', block: 'center' })
+      else {  
+            Navigate('/')
+            setTimeout(()=>{document.getElementById('Tour').scrollIntoView({ behavior: 'smooth', block: 'center' })},100)
+      }
+    }
+ 
 
  const Toggle = () => {
   document.getElementById("MENU").classList.toggle('show')
@@ -29,7 +47,7 @@ export default function Nav() {
             </div>
             <div>
                 <button 
-                onClick={()=>{document.getElementById('Tour').scrollIntoView({ behavior: 'smooth', block: 'center' })}}
+                onClick={navigatetoTour}
                 className='  bg-green-200 text-black rounded-full text-base p-2   font-bold px-8'>Join</button>
             </div>
          </div>

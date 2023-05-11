@@ -35,7 +35,7 @@ export default function Photos() {
                     type='text'></input>
 
                     <button 
-                    className='p-2 bg-blue-500 text-white'
+                    className='p-2 bg-blue-500 text-white border border-blue-500 font-bold px-4'
                     type='submit'>Search</button>
             </form >
 
@@ -50,21 +50,21 @@ export default function Photos() {
 
       <div className=' pt-5  w-full flex space-x-6'>
         <div className="w-1/4 space-y-6">
-            { photos && photos.slice(0,10).map(e => {
+            { photos && photos.slice(0,9).map(e => {
               return <>
                       <img className='' src={e.urls.small}></img>
               </>
           })}
         </div>
         <div className="w-1/4 space-y-6 bg-yellow block">
-            { photos && photos.slice(10,20).map(e => {
+            { photos && photos.slice(9,16).map(e => {
               return <>
                       <img className='' src={e.urls.small}></img>
                      </>
           })}
         </div>
         <div className="w-1/4 space-y-6 bg-yellow block">
-            { photos && photos.slice(20,30).map(e => {
+            { photos && photos.slice(16,24).map(e => {
               return <>
                       <img className='' src={e.urls.small}></img>
                      </>
@@ -72,7 +72,7 @@ export default function Photos() {
         </div>
 
         <div className="w-1/4 space-y-6 bg-yellow block">
-            { photos && photos.slice(20,30).map(e => {
+            { photos && photos.slice(24,30).map(e => {
               return <>
                       <img className='' src={e.urls.small}></img>
                      </>
